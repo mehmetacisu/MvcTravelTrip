@@ -1,0 +1,21 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+@foreach (var blog in Model)
+{
+    <div class="bot-img">
+        <img src="@blog.BlogPhoto" alt="@blog.Header" />
+    </div>
+    <div class="bot-desc1">
+        @if (blog.Description.Length >= 50)
+        {
+            <p>@blog.Description.Substring(0, 50)...</p>
+
+        }
+        else
+        {
+            <p>@blog.Description...</p>
+
+        }
+    </div>
+    <div class="clear"></div>
+}

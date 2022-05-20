@@ -1,0 +1,66 @@
+﻿@model TravelTripProject.Models.Classes.BlogWithComments
+@{
+    ViewBag.Title = "Detay";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<link href="~/webBlog/css/bootstrap.css" rel='stylesheet' type='text/css' />
+<link href="~/webBlog/css/style.css" rel='stylesheet' type='text/css' />
+<link href='http://fonts.googleapis.com/css?family=Oswald:100,400,300,700' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,300italic' rel='stylesheet' type='text/css'>
+<div class="single">
+    <div class="container">
+        <div class="col-md-8 single-main">
+            <div class="single-grid">
+                @foreach (var blog in Model.Blogs)
+                {
+                    <img src="@blog.BlogPhoto" alt="@blog.Header" />
+                    <h2 class="text-danger">@blog.Header</h2>
+                    <p>
+                        @blog.Description
+                    </p>
+                }
+            </div>
+            @foreach (var comment in Model.Comments)
+            {
+                <ul class="comment-list">
+                    <li>
+                        <div class="desc">
+                            <img src="~/webBlog/images/avatar.png" class="img-responsive" alt="">
+                            <p>
+                                @comment.Username:
+                            </p>
+                            <p>@comment.Comment</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </li>
+                </ul>
+            }
+            <div class="content-form">
+                <h3>Görüşünüz bizim için değerli :)</h3>
+                @Html.Action("Comment","Blog")
+            </div>
+        </div>
+        <div class="col-md-4 side-content">
+            @Html.Action("Top3Blog", "Blog")
+            <div class="comments">
+                <h3>RECENT COMMENTS</h3>
+                <ul>
+                    <li><a href="#">Amada Doe </a> on <a href="#">Hello World!</a></li>
+                    <li><a href="#">Peter Doe </a> on <a href="#"> Photography</a></li>
+                    <li><a href="#">Steve Roberts  </a> on <a href="#">HTML5/CSS3</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

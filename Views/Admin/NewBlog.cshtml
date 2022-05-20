@@ -1,0 +1,17 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "NewBlog";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center text-danger">Yeni Blog Ekleme Formu</h2>
+<form class="form-group" method="post">
+    <div class="row col-md-8 mx-auto">
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x => x.Header, new { @class = "form-control mb-1" })
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(x => x.Description,15,1, new { @class = "form-control mb-1" })
+        <button class="btn btn-success w-25 mt-2">Blog Ekle</button>
+    </div>
+</form>
+

@@ -1,0 +1,19 @@
+﻿@model TravelTripProject.Models.Classes.Blog
+@{
+    ViewBag.Title = "Update";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2 class="text-center text-warning">Blog Güncelleme Formu</h2>
+@using (Html.BeginForm("UpdateBlog", "Admin", FormMethod.Post))
+{
+    @Html.HiddenFor(x=>x.ID)
+    <div class="row col-md-8 mx-auto">
+        @Html.Label("Başlık")
+        @Html.TextBoxFor(x => x.Header, new { @class = "form-control mb-1" })
+        @Html.Label("Açıklama")
+        @Html.TextAreaFor(x => x.Description,15,1, new { @class = "form-control mb-1" })
+        <button class="btn btn-warning w-25 mt-2">Güncelle</button>
+    </div>
+}
+

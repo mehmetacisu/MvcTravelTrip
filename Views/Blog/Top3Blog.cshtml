@@ -1,0 +1,11 @@
+﻿@model TravelTripProject.Models.Classes.BlogWithComments
+
+<div class="recent">
+    <h3>Son Bloglar</h3>
+    <ul>
+        @foreach (var topBlog in Model.Top3Blog)
+        {
+            <li><a href="/Blog/Detay/@topBlog.ID">@topBlog.Header</a></li>
+        }
+    </ul>
+</div>

@@ -1,0 +1,29 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+
+<div class="con-bot">
+    @foreach (var blog in Model)
+    {
+        <div class="left">
+            <div class="bot-left">
+                <img src="@blog.BlogPhoto" alt="" />
+            </div>
+            <div class="left-text">
+                <h4>@blog.Header</h4>
+                <span class="doller">@blog.Date.ToString("dd-MMMM-yyyy HH:mm")</span>
+                @if (blog.Description.Length >= 50)
+                {
+                    <p>@blog.Description.Substring(0, 50)...</p>
+                }
+                else
+                {
+                <p>@blog.Description</p>
+                }
+                <p><a href="/Blog/Detay/@blog.ID"><span class="read">Devamını Oku >></span></a></p>
+            </div>
+        </div>
+    }
+    @Html.Action("BlogsForRightSide", "Home")
+    <div class="clear"></div>
+</div>
+
